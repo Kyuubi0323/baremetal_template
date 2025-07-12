@@ -1,0 +1,24 @@
+# Build artifacts
+build/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.su
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependency files
+*.d
+
+# Note: CMSIS submodules (cmsis/, cmsis-dsp/, cmsis-nn/) are tracked via .gitmodules
