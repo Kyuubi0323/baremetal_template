@@ -90,39 +90,6 @@ Currently configured for **STM32F411xE**. To change:
 - Add middleware components to `middleware/`
 - Update build configuration as needed
 
-## CMSIS Libraries
-
-### CMSIS-DSP
-The CMSIS-DSP library provides optimized DSP functions:
-```c
-#include "arm_math.h"
-
-// Example: Fast Fourier Transform
-arm_cfft_f32(&arm_cfft_sR_f32_len1024, input_data, 0, 1);
-```
-
-### CMSIS-NN
-The CMSIS-NN library provides optimized neural network functions:
-```c
-#include "arm_nnfunctions.h"
-
-// Example: Fully connected layer
-arm_fully_connected_q7(input, weights, bias, output, ...);
-```
-
-**Note:** CMSIS-DSP requires `-DARM_MATH_CM4` flag (already included in Makefile).
-│   └── startup
-│       └── startup_stm32f4xx.s # Startup assembly code
-├── include
-│   └── stm32f4xx.h           # Header file for STM32F4 peripherals
-├── scripts
-│   └── clone_cmsis.sh        # Script to clone CMSIS as a Git submodule
-├── cmsis
-│   └── (Git submodule)       # CMSIS library files
-├── Makefile                  # Build instructions
-└── README.md                 # Project documentation
-```
-
 ## Setup Instructions
 
 1. **Clone the Repository**: Clone this template project to your local machine.
