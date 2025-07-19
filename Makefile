@@ -1,7 +1,19 @@
 CC = arm-none-eabi-gcc
-CFLAGS = -mcpu=cortex-m4 -mthumb -Wall -Iinclude -Icmsis/CMSIS/Core/Include -Icmsis-dsp/Include -DSTM32F411xE -DARM_MATH_CM4
+CFLAGS = -mcpu=cortex-m4 -mthumb -Wall -g -O0 \
+         -Iinclude \
+         -Icmsis/CMSIS/Core/Include \
+         -Icmsis-dsp/Include \
+         -IHAL/Inc \
+         -DSTM32F411xE \
+         -DARM_MATH_CM4 \
+         -DUSE_HAL_DRIVER
 LDFLAGS = -Tstm32f4xx.ld --specs=nosys.specs
-SRC = src/main.c src/system_stm32f4xx.c src/startup/startup_stm32f4xx.s
+SRC = src/main.c \
+      src/system_stm32f4xx.c \
+      src/startup/startup_stm32f4xx.s \
+      HAL/Src/stm32f4xx_hal.c \
+      HAL/Src/stm32f4xx_hal_msp.c \
+      HAL/Inc/stm32f4xx_it.c
 BUILD_DIR = build
 OBJ = $(addprefix $(BUILD_DIR)/,$(SRC:.c=.o))
 OBJ := $(OBJ:.s=.o)
